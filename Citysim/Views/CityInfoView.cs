@@ -48,7 +48,7 @@ namespace Citysim.Views
                 Vector2 valueDrawPos = new Vector2(width - (stringFullSize - labelSize) - 10, 10);
 
                 spriteBatch.DrawString(game.gameFont, label + ": ", labelDrawPos, Color.Black);
-                spriteBatch.DrawString(game.gameFont, value, valueDrawPos, Color.SlateGray);
+                spriteBatch.DrawString(game.gameFont, value, valueDrawPos, Color.Yellow);
             }
 
             // Draw cash
