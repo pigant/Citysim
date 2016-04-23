@@ -34,7 +34,7 @@ namespace Citysim.Views
 
             int fontHeight = (int)(game.gameFont.MeasureString("Aap123#").Y);
 
-            AddStat("Cash", "$" + game.city.cash.ToString());
+            AddStat("Cash", "$" + game.city.cash.ToString() + "k");
 
             // Draw stats
             foreach (string[] stat in stats)
