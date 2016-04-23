@@ -25,6 +25,7 @@ namespace Citysim.Views
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Citysim " + Citysim.VERSION);
             sb.AppendLine("Map size " + game.city.world.height + "x" + game.city.world.width);
+            sb.AppendLine("Camera: " + game.camera.position.X + "," + game.camera.position.Y + " [" + game.camera.speed + "]");
 
             spriteBatch.DrawString(game.font, sb, new Vector2(10, 10), Color.Black, 0F, new Vector2(0,0), 0.5F, SpriteEffects.None, 1.0F);
         }
