@@ -73,6 +73,7 @@ namespace Citysim
 
             // Load font.
             font = Content.Load<SpriteFont>("arial");
+            gameFont = font;
 
             // Load tile textures
             tileRegistry.LoadTextures();
