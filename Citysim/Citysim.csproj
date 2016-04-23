@@ -57,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="Views\CityInfoView.cs" />
     <Compile Include="Views\DebugView.cs" />
     <Compile Include="Views\MapView.cs" />
     <Compile Include="Views\IView.cs" />

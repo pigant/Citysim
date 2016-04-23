@@ -60,6 +60,7 @@ namespace Citysim.Views
         public static void RegisterViews(ViewRegistry registry)
         {
             registry.Register(new MapView());
+            registry.Register(new CityInfoView());
             registry.Register(new DebugView());
         }
     }

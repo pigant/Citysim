@@ -25,7 +25,7 @@ namespace Citysim
         public bool debug = false;
 
         public SpriteFont font;
-        public SpriteFont gameFont;
+        public BitmapFont gameFont;
 
         public ViewRegistry viewRegistry;
         public TileRegistry tileRegistry;
@@ -73,7 +73,7 @@ namespace Citysim
 
             // Load font.
             font = Content.Load<SpriteFont>("arial");
-            gameFont = font;
+            gameFont = Content.Load<BitmapFont>("squares");
 
             // Load tile textures
             tileRegistry.LoadTextures();
