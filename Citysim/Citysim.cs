@@ -40,9 +40,28 @@ namespace Citysim
             instance = this;
 
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 580;
+            graphics.PreferredBackBufferWidth = 900;
             Content.RootDirectory = "Content";
         }
         
+        public void ToggleFullscreen()
+        {
+            if (graphics.IsFullScreen)
+            {
+                graphics.IsFullScreen = false;
+                graphics.PreferredBackBufferWidth = 900;
+                graphics.PreferredBackBufferHeight = 580;
+            }
+            else
+            {
+                graphics.IsFullScreen = true;
+                graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            }
+            graphics.ApplyChanges();
+        }
+
         protected override void Initialize()
         {
             IsMouseVisible = true;
@@ -91,6 +110,9 @@ namespace Citysim
 
             if (KeyboardHelper.IsKeyDown(Keys.Escape))
                 Exit();
+
+            if (KeyboardHelper.IsKeyPressed(Keys.F11))
+                ToggleFullscreen();
 
             // Update views
             viewRegistry.Update(this, gameTime);
