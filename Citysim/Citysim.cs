@@ -96,6 +96,9 @@ namespace Citysim
 
             // Load tile textures
             tileRegistry.LoadTextures();
+
+            // Load view content
+            viewRegistry.LoadContent(Content);
         }
         
         protected override void UnloadContent()

@@ -2,6 +2,7 @@
 using Citysim;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace Citysim.Views
 {
@@ -53,6 +54,19 @@ namespace Citysim.Views
             {
                 if (view != null)
                     view.Update(game, gameTime);
+            }
+        }
+
+        /// <summary>
+        /// Allow views to load their own content.
+        /// </summary>
+        /// <param name="content">Content manager</param>
+        public void LoadContent(ContentManager content)
+        {
+            foreach (IView view in views)
+            {
+                if (view != null)
+                    view.LoadContent(content);
             }
         }
 
