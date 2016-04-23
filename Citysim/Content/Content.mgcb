@@ -110,20 +110,9 @@
 /processorParam:TextureFormat=Color
 /build:tiles/water.3.png
 
-#begin arial.fnt
-/importer:BitmapFontImporter
-/processor:BitmapFontProcessor
-/build:arial.fnt
-
-#begin arial_0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:arial_0.png
+#begin arial.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:arial.spritefont
 

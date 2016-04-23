@@ -22,7 +22,11 @@ namespace Citysim.Views
             if (!game.debug)
                 return; // Debug mode disabled
 
-            spriteBatch.DrawString(game.font, "Citysim " + Citysim.VERSION, new Vector2(10, 10), Color.Black);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Citysim " + Citysim.VERSION);
+            sb.AppendLine("Map size " + game.city.world.height + "x" + game.city.world.width);
+
+            spriteBatch.DrawString(game.font, sb, new Vector2(10, 10), Color.Black, 0F, new Vector2(0,0), 0.5F, SpriteEffects.None, 1.0F);
         }
 
         public void Update(Citysim game, GameTime gameTime)
