@@ -80,7 +80,7 @@ namespace Citysim
 
             // Load blank city
             city = new City();
-            city.world = generator.Generate(city.world, 100, 100, new Random());
+            city.world = generator.Generate(city.world, 50, 50, new Random());
             
             base.Initialize();
         }
