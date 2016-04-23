@@ -50,11 +50,6 @@ namespace Citysim.Views
                 spriteBatch.DrawString(game.gameFont, label + ": ", labelDrawPos, Color.Black);
                 spriteBatch.DrawString(game.gameFont, value, valueDrawPos, Color.Yellow);
             }
-
-            // Draw cash
-            /*int cashStringSize = (int)(game.gameFont.MeasureString("Cash: ").X * scale);
-            int cashFullStringSize = (int)(game.gameFont.MeasureString("Cash: " + game.city.cash).X * scale);
-            spriteBatch.DrawString(game.gameFont, "Cash: ", new Vector2(width - cashFullStringSize - 10, 10), Color.Blue, 0F, new Vector2(0, 0), scale, SpriteEffects.None, 1.0F);*/
         }
 
         public void Update(Citysim game, GameTime gameTime)
