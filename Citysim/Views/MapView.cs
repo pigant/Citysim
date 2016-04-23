@@ -21,6 +21,8 @@ namespace Citysim.Views
             int cameraX = (int)game.camera.position.X;
             int cameraY = (int)game.camera.position.Y;
 
+            int tileSize = 64;
+
             // Loop through tiles.
             for (int x = 0; x < world.width; x++)
             {
@@ -32,7 +34,8 @@ namespace Citysim.Views
                         if (tile == null)
                             continue; // unknown tile
 
-                        Rectangle tileRect = new Rectangle(cameraX + x * 32, cameraY + y * 32, 32, 32);
+                        Rectangle tileRect = new Rectangle(cameraX + x * tileSize, cameraY + y * tileSize, tileSize, tileSize);
+                        
                         spriteBatch.Draw(tile.GetTexture(gameTime), tileRect, Color.White);
                     }
                 }

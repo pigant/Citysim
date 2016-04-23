@@ -124,7 +124,7 @@ namespace Citysim
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
 
             // Render views
             viewRegistry.Render(this, spriteBatch, gameTime);
