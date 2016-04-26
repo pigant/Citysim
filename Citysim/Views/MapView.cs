@@ -33,7 +33,7 @@ namespace Citysim.Views
                 {
                     for (int z = 0; z < World.depth; z++)
                     {
-                        ITile tile = game.tileRegistry.GetTile(world.tiles[x, y, z]);
+                        ITile tile = world.GetTile(new Vector3(x, y, z));
                         if (tile == null)
                             continue; // unknown tile
 

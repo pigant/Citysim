@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Citysim.Map.Generators
 {
@@ -39,6 +40,7 @@ namespace Citysim.Map.Generators
         {
             // Create new world
             world.tiles = new int[width, height, 16];
+            world.tileOrigins = new Vector3?[width, height, 16];
             world.width = width;
             world.height = height;
 
