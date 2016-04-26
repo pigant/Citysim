@@ -117,6 +117,9 @@ namespace Citysim
             if (KeyboardHelper.IsKeyPressed(Keys.F11))
                 ToggleFullscreen();
 
+            // Update camera
+            camera.Update(this, gameTime);
+
             // Update views
             viewRegistry.Update(this, gameTime);
 

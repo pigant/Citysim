@@ -10,8 +10,13 @@ namespace Citysim.Views
 {
     public class MapView : IView
     {
+        private Texture2D hitbox;
+
+        private int tileSize = 64;
+
         public void LoadContent(ContentManager content)
         {
+            hitbox = content.Load<Texture2D>("hitbox");
         }
 
         public void Render(SpriteBatch spriteBatch, Citysim game, GameTime gameTime)
@@ -20,8 +25,6 @@ namespace Citysim.Views
 
             int cameraX = (int)game.camera.position.X;
             int cameraY = (int)game.camera.position.Y;
-
-            int tileSize = 64;
 
             // Loop through tiles.
             for (int x = 0; x < world.width; x++)
@@ -40,25 +43,19 @@ namespace Citysim.Views
                     }
                 }
             }
+
+            if (world.InBounds(game.camera.hovering))
+            {
+                // Draw hitbox
+                int hitX = (int)(game.camera.hovering.X * tileSize + game.camera.position.X);
+                int hitY = (int)(game.camera.hovering.Y * tileSize + game.camera.position.Y);
+                spriteBatch.Draw(hitbox, new Rectangle(hitX, hitY, tileSize, tileSize), Color.White);
+            }
         }
 
         public void Update(Citysim game, GameTime gameTime)
         {
-            if (KeyboardHelper.IsKeyDown(Keys.LeftShift))
-                game.camera.speed = 15;
-            else
-                game.camera.speed = 7;
-
-            int speed = game.camera.speed;
-
-            if (KeyboardHelper.IsKeyDown(Keys.W))
-                game.camera.position.Y += speed;
-            if (KeyboardHelper.IsKeyDown(Keys.A))
-                game.camera.position.X += speed;
-            if (KeyboardHelper.IsKeyDown(Keys.S))
-                game.camera.position.Y -= speed;
-            if (KeyboardHelper.IsKeyDown(Keys.D))
-                game.camera.position.X -= speed;
+            
         }
     }
 }
