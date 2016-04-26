@@ -51,8 +51,10 @@
     <Compile Include="Map\TileRegistry.cs" />
     <Compile Include="Map\Tiles\ITile.cs" />
     <Compile Include="Map\Tiles\ITileCustomRenderer.cs" />
+    <Compile Include="Map\Tiles\ITilePower.cs" />
     <Compile Include="Map\Tiles\TileAnimated.cs" />
     <Compile Include="Map\Tiles\TileLargeTest.cs" />
+    <Compile Include="Map\Tiles\TileNuclearPlant.cs" />
     <Compile Include="Map\Tiles\TileWater.cs" />
     <Compile Include="Map\World.cs" />
     <Compile Include="Map\Tiles\Tile.cs" />

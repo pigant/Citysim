@@ -79,6 +79,7 @@ namespace Citysim.Map.Tiles
         public static Tile tileFlowers;
         public static Tile tileWater;
         public static Tile tileLargeTest;
+        public static Tile tileNuclearReactor;
 
         public static void Register(TileRegistry tileRegistry)
         {
@@ -87,12 +88,14 @@ namespace Citysim.Map.Tiles
             tileFlowers = new Tile(3).SetTextureName("tiles/flowers");
             tileWater = new TileWater(4);
             tileLargeTest = new TileLargeTest(5);
+            tileNuclearReactor = new TileNuclearPlant(6);
 
             tileRegistry.Register(tileGrass);
             tileRegistry.Register(tileDirt);
             tileRegistry.Register(tileFlowers);
             tileRegistry.Register(tileWater);
             tileRegistry.Register(tileLargeTest);
+            tileRegistry.Register(tileNuclearReactor);
         }
         #endregion
     }
