@@ -55,7 +55,14 @@ namespace Citysim.Views
 
         public void Update(Citysim game, GameTime gameTime)
         {
-            
+            if (game.city.world.InBounds(game.camera.hovering.X, game.camera.hovering.Y) && game.debug)
+            {
+                MouseState mouseState = Mouse.GetState();
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                    game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = Tile.tileLargeTest.id;
+                else if (mouseState.RightButton == ButtonState.Pressed)
+                    game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = 0;
+            }
         }
     }
 }
