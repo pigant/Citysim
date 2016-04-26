@@ -6,6 +6,9 @@ namespace Citysim.Map.Tiles
 {
     public interface ITile
     {
+        /// <summary>
+        /// Unique ID for the tile. Mustn't be used by any other tile.
+        /// </summary>
         int id { get; set; }
 
         /// <summary>
