@@ -14,16 +14,34 @@ namespace Citysim.Map
         public int height;
         public const int depth = 16;
         
+        /// <summary>
+        /// Is a particular set of coordinates within the bounds of the world?
+        /// </summary>
+        /// <param name="x">X coord</param>
+        /// <param name="y">Y coord</param>
+        /// <returns></returns>
         public bool InBounds(double x, double y)
         {
             return (((x >= 0) && (x < width)) && ((y >= 0) && (y < height)));
         }
 
+        /// <summary>
+        /// Is a particular set of coordinates within the bounds of the world?
+        /// </summary>
+        /// <param name="x">X coord</param>
+        /// <param name="y">Y coord</param>
+        /// <returns></returns>
         public bool InBounds(Vector2 vector)
         {
             return InBounds(vector.X, vector.Y);
         }
 
+        /// <summary>
+        /// Find the origin tile for a multiblock.
+        /// If not a multiblock (or the origin block of one), it'll return the same position passed in.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public Vector3 FindTileOrigin(Vector3 position)
         {
             Vector3? origin = tileOrigins[(int)position.X, (int)position.Y, (int)position.Z];
@@ -33,6 +51,12 @@ namespace Citysim.Map
                 return position; // Not a multitile, origin is self.
         }
 
+        /// <summary>
+        /// Remove a tile at this position.
+        /// This is advised over manually modifiying the tiles array, as this handles multiblocks.
+        /// </summary>
+        /// <param name="position">Position of tile to remove. If part of a multitile, the entire multitile will be removed.</param>
+        /// <returns></returns>
         public bool RemoveTile(Vector3 position)
         {
             Vector3 origin = FindTileOrigin(position);
@@ -56,6 +80,13 @@ namespace Citysim.Map
             return true;
         }
 
+        /// <summary>
+        /// Places a tile.
+        /// This is advised over manually modifiying the tiles array, as this handles multiblocks.
+        /// </summary>
+        /// <param name="tileID">ID of tile to place</param>
+        /// <param name="position">Position to place tile. In the case of multiblocks, this is the top-left coordinate.</param>
+        /// <returns></returns>
         public bool PlaceTile(int tileID, Vector3 position)
         {
             if (tileID == 0)
@@ -97,6 +128,12 @@ namespace Citysim.Map
             return true;
         }
 
+        /// <summary>
+        /// Get a tile at the particular location.
+        /// Takes into account multiblocks.
+        /// </summary>
+        /// <param name="position">Coordinates</param>
+        /// <returns></returns>
         public ITile GetTile(Vector3 position)
         {
             if (!InBounds(new Vector2(position.X, position.Y)))
@@ -111,6 +148,11 @@ namespace Citysim.Map
             return tile;
         }
 
+        /// <summary>
+        /// Checks if a tile is present at a particular location.
+        /// </summary>
+        /// <param name="position">Coordinates</param>
+        /// <returns></returns>
         public bool IsTilePresent(Vector3 position)
         {
             if (!InBounds(new Vector2(position.X, position.Y)))
