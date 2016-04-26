@@ -26,6 +26,8 @@ namespace Citysim.Views
             sb.AppendLine("Citysim " + Citysim.VERSION);
             sb.AppendLine("Map size " + game.city.world.height + "x" + game.city.world.width);
             sb.AppendLine("Camera: " + game.camera.position.X + "," + game.camera.position.Y + " [" + game.camera.speed + "]");
+            sb.AppendLine("Absolute Mouse Position: " + game.camera.hoveringExact.X + "," + game.camera.hoveringExact.Y);
+            sb.AppendLine("Selected Tile: " + game.camera.hovering.X + "," + game.camera.hovering.Y);
 
             spriteBatch.DrawString(game.font, sb, new Vector2(10, 10), Color.Black, 0F, new Vector2(0,0), 0.5F, SpriteEffects.None, 1.0F);
         }
