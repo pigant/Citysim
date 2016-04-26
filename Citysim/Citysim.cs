@@ -123,12 +123,6 @@ namespace Citysim
             // Update views
             viewRegistry.Update(this, gameTime);
 
-            if (KeyboardHelper.IsKeyPressed(Keys.F8))
-            {
-                ITile test = city.world.GetTile(new Vector3(4, 4, 9));
-                ;
-            }
-
             base.Update(gameTime);
         }
         
