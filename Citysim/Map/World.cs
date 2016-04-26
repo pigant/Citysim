@@ -31,6 +31,9 @@ namespace Citysim.Map
 
         public bool PlaceTile(int tileID, Vector3 position)
         {
+            if (tileID == 0)
+                return RemoveTile(position);
+
             ITile tile = Citysim.instance.tileRegistry.GetTile(tileID);
             Point size = tile.GetTileSize();
             Vector3 position2 = new Vector3(position.X + size.X - 1, position.Y + size.Y - 1, 1);
