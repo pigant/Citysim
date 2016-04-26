@@ -27,18 +27,18 @@ namespace Citysim.Views
             int cameraY = (int)game.camera.position.Y;
 
             // Loop through tiles.
-            for (int x = 0; x < world.width; x++)
+            for (int z = 0; z < World.depth; z++)
             {
                 for (int y = 0; y < world.height; y++)
                 {
-                    for (int z = 0; z < World.depth; z++)
+                    for (int x = 0; x < world.width; x++)
                     {
-                        ITile tile = world.GetTile(new Vector3(x, y, z));
+                        ITile tile = game.tileRegistry.GetTile(world.tiles[x, y, z]);
                         if (tile == null)
                             continue; // unknown tile
 
-                        Rectangle tileRect = new Rectangle(cameraX + x * tileSize, cameraY + y * tileSize, tileSize, tileSize);
-                        
+                        Rectangle tileRect = new Rectangle(cameraX + x * tileSize, cameraY + y * tileSize, tileSize * tile.GetTileSize().X, tileSize * tile.GetTileSize().Y);
+
                         spriteBatch.Draw(tile.GetTexture(gameTime), tileRect, Color.White);
                     }
                 }
