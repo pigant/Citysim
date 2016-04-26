@@ -59,9 +59,11 @@ namespace Citysim.Views
             {
                 MouseState mouseState = Mouse.GetState();
                 if (mouseState.LeftButton == ButtonState.Pressed)
-                    game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = Tile.tileLargeTest.id;
+                    //game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = Tile.tileLargeTest.id;
+                    game.city.world.PlaceTile(Tile.tileLargeTest.id, new Vector3(game.camera.hovering.X, game.camera.hovering.Y, 9));
                 else if (mouseState.RightButton == ButtonState.Pressed)
-                    game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = 0;
+                    //game.city.world.tiles[(int)game.camera.hovering.X, (int)game.camera.hovering.Y, 9] = 0;
+                    game.city.world.RemoveTile(new Vector3(game.camera.hovering.X, game.camera.hovering.Y, 9));
             }
         }
     }
