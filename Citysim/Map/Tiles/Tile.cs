@@ -20,12 +20,23 @@ namespace Citysim.Map.Tiles
             set { this.id = value; }
         }
 
+        public Point tileSize = new Point(1, 1);
+
         protected Texture2D texture;
 
         /// <summary>
         /// Texture path within game content.
         /// </summary>
         protected string texturePath = "tiles/error";
+
+        /// <summary>
+        /// Tile size (measured in tiles) for this tile.
+        /// A standard tile is 1,1 (a single tile).
+        /// </summary>
+        public virtual Point GetTileSize()
+        {
+            return this.tileSize;
+        }
 
         /// <summary>
         /// Load the texture from the texture path variable.
@@ -67,6 +78,7 @@ namespace Citysim.Map.Tiles
         public static Tile tileDirt;
         public static Tile tileFlowers;
         public static Tile tileWater;
+        public static Tile tileLargeTest;
 
         public static void Register(TileRegistry tileRegistry)
         {
@@ -74,11 +86,13 @@ namespace Citysim.Map.Tiles
             tileDirt = new Tile(2).SetTextureName("tiles/dirt");
             tileFlowers = new Tile(3).SetTextureName("tiles/flowers");
             tileWater = new TileWater(4);
+            tileLargeTest = new TileLargeTest(5);
 
             tileRegistry.Register(tileGrass);
             tileRegistry.Register(tileDirt);
             tileRegistry.Register(tileFlowers);
             tileRegistry.Register(tileWater);
+            tileRegistry.Register(tileLargeTest);
         }
         #endregion
     }

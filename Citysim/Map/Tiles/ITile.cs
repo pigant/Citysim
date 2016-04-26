@@ -12,6 +12,12 @@ namespace Citysim.Map.Tiles
         int id { get; set; }
 
         /// <summary>
+        /// Tile size (measured in tiles) for this tile.
+        /// A standard tile is 1,1 (a single tile).
+        /// </summary>
+        Point GetTileSize();
+
+        /// <summary>
         /// Load the texture from the texture path variable.
         /// This is called automatically once the game is ready to load assets.
         /// </summary>
