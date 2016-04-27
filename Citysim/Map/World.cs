@@ -110,6 +110,13 @@ namespace Citysim.Map
             ITile tile = Citysim.instance.tileRegistry.GetTile(tileID);
             Point size = tile.GetTileSize();
 
+            //Check if the tile will draw out of the world
+            if (tileOrigins.GetLength(0) < position.X + size.X
+                || tileOrigins.GetLength(1) < position.Y + size.Y)
+            {
+                return false;
+            }
+
             int blockArea = size.X * size.Y;
             if (blockArea > 1)
             {
