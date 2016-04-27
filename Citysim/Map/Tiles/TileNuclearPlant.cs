@@ -19,5 +19,10 @@ namespace Citysim.Map.Tiles
         {
             return 500; // produces 500 megawatts
         }
+
+        public override bool IsActiveTile()
+        {
+            return true;
+        }
     }
 }

@@ -57,6 +57,11 @@ namespace Citysim.Map.Tiles
             return this.texture;
         }
 
+        public virtual bool IsActiveTile()
+        {
+            return false;
+        }
+
         /// <summary>
         /// Set texture name (texture path).
         /// </summary>

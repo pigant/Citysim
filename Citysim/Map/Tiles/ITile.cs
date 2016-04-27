@@ -12,6 +12,12 @@ namespace Citysim.Map.Tiles
         int id { get; set; }
 
         /// <summary>
+        /// Is this a special tile that has logic and such?
+        /// </summary>
+        /// <returns></returns>
+        bool IsActiveTile();
+
+        /// <summary>
         /// Tile size (measured in tiles) for this tile.
         /// A standard tile is 1,1 (a single tile).
         /// </summary>
