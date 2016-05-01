@@ -31,25 +31,27 @@ namespace Citysim
             XmlDocument doc = new XmlDocument();
             doc.Load(xml);
             //load tile's size
-            XmlNode element = doc.SelectSingleNode("//settings/tiles/size");
-            Tiles.tileSize = Convert.ToInt32(element.LastChild.Value);
+            XmlNode element = doc.SelectSingleNode("//settings/tiles");
+            Tiles.tileSize = getInt(element, "size");
             //load world's width and height
             element = doc.SelectSingleNode("//settings/world");
-            XmlNode nextElement = element.SelectSingleNode("width");
-            World.width = Convert.ToInt32(nextElement.LastChild.Value);
-            nextElement = element.SelectSingleNode("height");
-            World.height = Convert.ToInt32(nextElement.LastChild.Value);
+            World.width = getInt(element, "width");
+            World.height = getInt(element, "height");
             //load camera's speed
             element = doc.SelectSingleNode("//settings/camera");
-            nextElement = element.SelectSingleNode("lowSpeed");
-            Camera.lowSpeed = Convert.ToInt32(nextElement.LastChild.Value);
-            nextElement = element.SelectSingleNode("highSpeed");
-            Camera.highSpeed = Convert.ToInt32(nextElement.LastChild.Value);
+            Camera.lowSpeed = getInt(element, "lowSpeed");
+            Camera.highSpeed = getInt(element,"highSpeed");
         }
 
         public static void load()
         {
             load("Settings/settings.xml");
+        }
+
+        private static Int32 getInt(XmlNode element, String name)
+        {
+            XmlNode nextNode = element.SelectSingleNode(name);
+            return Convert.ToInt32(nextNode.LastChild.Value);
         }
 
     }
