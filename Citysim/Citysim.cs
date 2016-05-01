@@ -79,8 +79,10 @@ namespace Citysim
             ViewRegistry.RegisterViews(viewRegistry); // register game views
 
             // Load blank city
+            int width = Setting.World.width;
+            int height = Setting.World.height;
             city = new City();
-            city.world = generator.Generate(city.world, 50, 50, new Random());
+            city.world = generator.Generate(city.world, width, height, new Random());
             
             base.Initialize();
         }

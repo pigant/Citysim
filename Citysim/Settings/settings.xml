@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <tiles>
+    <size>16</size>
+  </tiles>
+  <world>
+    <width>100</width>
+    <height>100</height>
+  </world>
+  <camera>
+    <lowSpeed>7</lowSpeed>
+    <highSpeed>15</highSpeed>
+  </camera>
+</settings>

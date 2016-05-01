@@ -12,7 +12,7 @@ namespace Citysim.Views
     {
         private Texture2D hitbox;
 
-        private int tileSize = 64;
+        private int tileSize = Setting.Tiles.tileSize;
 
         public void LoadContent(ContentManager content)
         {
