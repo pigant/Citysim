@@ -14,6 +14,7 @@ namespace Citysim
         [STAThread]
         static void Main()
         {
+            Setting.load();
             using (var game = new Citysim())
                 game.Run();
         }

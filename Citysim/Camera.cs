@@ -10,9 +10,9 @@ namespace Citysim
     {
         public Vector2 position = new Vector2(0, 0);
 
-        public int speed = 5;
+        public int speed = Setting.Camera.lowSpeed;
 
-        public int tileSize = 64;
+        public int tileSize = Setting.Tiles.tileSize;
 
         // Current X/Y coords where the mouse is hovering.
         public Vector2 hovering = new Vector2(0, 0);
@@ -24,9 +24,9 @@ namespace Citysim
         {
             // Handle movement.
             if (KeyboardHelper.IsKeyDown(Keys.LeftShift))
-                game.camera.speed = 15;
+                game.camera.speed = Setting.Camera.highSpeed;
             else
-                game.camera.speed = 7;
+                game.camera.speed = Setting.Camera.lowSpeed;
 
             int speed = game.camera.speed;
 
