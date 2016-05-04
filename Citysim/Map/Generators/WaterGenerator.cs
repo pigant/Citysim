@@ -25,7 +25,7 @@ namespace Citysim.Map.Generators
                 {
                     position = Util.MoveInRandomDirection(position, random);
                     if (world.InBounds(position))
-                        world.tiles[(int)position.X, (int)position.Y, 8] = Tile.tileWater.id;
+                        world.tiles[(int)position.X, (int)position.Y, 9] = Tile.tileWater.id;
                 }
             }
 
